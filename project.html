@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Project</title>
+    <style>
+        /* * {
+            margin: 0;
+            padding: 0;
+        } */
+        body {
+            font-family: arial;
+        }
+        .pro {
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 50px;
+    }
+    .but {
+        position: absolute;
+        display: flex;
+        left: 1240px;
+        top: 11px;
+        background-color: rgb(14, 14, 128);
+        font-weight: bolder;
+        text-decoration: none;
+        border-radius: 15px;
+    }
+    .al {
+        position: absolute;
+            top: 150px;
+            left: 60px;
+            width: 150px;
+            font-size: 40px;
+            font-weight: bolder;
+            font-family: arial;
+        }
+      .di {
+            position: absolute;
+            left: 600px;
+            top: 190px;
+         }
+         .cok {
+            position: absolute;
+            left: 1200px;
+            top: 100px;
+            }
+            .fan {
+             position: absolute;
+            left: 1200px;
+            top: 260px;
+            }
+            .spr {
+         position: absolute;
+         left: 1200px;
+          top: 410px;
+            }
+         .nex {
+            position: absolute;
+            top: 410px;
+            left: 140px;
+            background-color: rgb(14, 14, 128);
+            border-radius: 50px;
+            color: #fff;
+            height: 30px;
+            width: 30px;
+            border: none;
+        }
+        .prev {
+            position: absolute;
+            top: 410px;
+            left: 75px;
+            background-color: rgb(14, 14, 128) ;
+            border-radius: 50px;
+            color: #fff;
+            height:30px;
+            width: 30px;
+            border: none;
+        }
+        .bu {
+            position: absolute;
+            top: 450px;
+            left: 60px;
+            background-color: black;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            padding-left: 40px ;
+        }
+        .ba {
+            position: absolute;
+            color: #fff;
+            background-color: rgba(221, 201, 24, 0.89);
+            left: 10px;
+            top: 5px;
+            border-radius: 10px;
+            padding: 5px 5px;
+            
+        }
+        .a {
+            position: absolute;
+            top: 415px;
+            left: 115px;
+            font-weight: bold;
+        }
+        .co {
+            position: absolute;
+            top: 270px;
+            left: 60px;
+            font-size: 30px;
+            font-weight: 500;
+        }
+        .to {
+            position: absolute;
+            top: 315px;
+            left: 60px;
+            font-size: 30px;
+        }
+        .ch {
+            position: absolute;
+            top: 385px;
+            left: 65px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <img class="cok" src="coke.jpg" alt="" width="120px">
+        <img class="fan" src="fanta.jpg" alt="" width="120px">
+        <img class="spr" src="sprite.jpg" alt="" width="120px">
+        <img class="di" src="minerals.jpg" alt="">
+    <ul class="pro">
+       <li>HOME</li>
+       <li>PRODUCT</li>
+       <li>ABOUT</li>
+       <li>SUPPORT</li>
+    </ul>
+    <div>
+    <img style="position: absolute; left: 1200px; top: 12px;" src="search.svg" alt="">
+    <!-- <img style="position: absolute; left: 1250px; top: 12px; background-color: rgb(18, 18, 148); border-radius: 5px;" src="cart.svg" alt=""> -->
+    <button class="but">
+        <img src="cart.svg" alt="">
+    </button>
+    <div>
+    <div class="al">Always Be Your Self</div>
+    <p class="co">Coca-cola <span style="color: rgb(91, 182, 31);">Drinks</span></p>
+    </div>
+      <div>
+        <p class="to">Total Order : $<strong class="num">0</strong><strong>.00</strong></p>
+        <div class="ch">Choose Your</div>
+        <button class="prev"><</button>
+        <span class="a">0</span>
+        <button class="nex">></button>
+        <button class="bu"><img class="ba" src="basket3.svg" alt="img"> Buy Now</button>
+    </div>
+     <script>
+        let coca = document.querySelector(".co");
+        let coke = document.querySelector(".cok");
+        let fanta = document.querySelector(".fan");
+        let sprite = document.querySelector(".spr");
+        let mineral = document.querySelector(".di");
+        let next = document.querySelector(".nex");
+        let prev = document.querySelector(".prev");
+        let ab = document.querySelector(".a");
+        let but = document.querySelector(".num");
+        let count = 0;
+
+        let items = {
+            image: ["coke.jpg"
+        ],
+            name: [
+                "Coca-cola"
+            ],
+        };
+        coke.addEventListener("click", () => {
+            coca.innerHTML = items.name[count];
+            mineral.src = items.image[count]
+            count++;
+        });
+
+        let item1 = {
+            image: ["fanta.jpg"
+        ],
+            name: [
+                "Fanta"
+            ],
+        };
+        fanta.addEventListener("click", () => {
+            coca.innerHTML = item1.name[count];
+            mineral.src = item1.image[count]
+            count++;
+        });
+        let item = {
+            image: ["sprite.jpg"
+        ],
+            name: [
+                "Sprite"
+            ],
+        };
+        sprite.addEventListener("click", () => {
+            coca.innerHTML = item.name[count];
+            mineral.src = item.image[count]
+            count++;
+        });
+        next.addEventListener("click", function ne(){
+            count++;
+            console.log(count);
+          ab.innerHTML = count;
+          but.innerHTML = count;
+            if (count == 15) {
+                next.disabled = true;
+            }
+            else if (count < 15){
+                next.disabled = false
+            }
+            if (count == 0){
+                prev.disabled = true;
+            }
+            else if (count > 0){
+                prev.disabled = false
+            }
+        });
+
+        prev.addEventListener("click", function pre(){
+            count--;
+            console.log(count);
+          ab.innerHTML = count;
+          but.innerHTML = count;
+            if (count == -0) {
+                prev.disabled = true;
+            }
+            else if (count < 15){
+                prev.disabled = false
+            }
+            // if (count == 0){
+            //     next.disabled = true;
+            // }
+            // else if (count > 0){
+            //     next.disabled = false
+            // }
+        });
+
+       
+
+      </script>
+</body>
+</html>
